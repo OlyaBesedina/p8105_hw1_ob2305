@@ -5,6 +5,26 @@ date: 2019-09-18
 output: github_document
 ---
 
-```{r setup, include = FALSE}
+# Problem 1
+
+```{r problem 1}
 library(tidyverse)
+
+my_df = tibble(
+  normal_sample = rnorm(8),
+  normal_sample_pos = normal_sample > 0,
+  char_vector = ("Elephant")
+)
 ```
+
+
+# Problem 2
+
+```{r problem 2}
+plot_df = tibble(
+  x = rnorm(500),
+  y = rnorm(500),
+  logic_vector = x + y >1
+)
+```
+
