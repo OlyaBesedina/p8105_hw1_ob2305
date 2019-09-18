@@ -5,15 +5,19 @@ date: 2019-09-18
 output: github_document
 ---
 
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
 # Problem 1
 
 ```{r problem 1}
-library(tidyverse)
 
 my_df = tibble(
-  normal_sample = rnorm(8),
-  normal_sample_pos = normal_sample > 0,
-  char_vector = ("Elephant")
+  vec_numeric = rnorm(8),
+  vec_logical = vec_numeric > 0,
+  vec_char = c("monkey", "eel", "finch", "dog", "cat", "salmon", "carp","parrot"),
+  vec_factor = factor(c("mammal", "fish", "bird", "mammal", "mammal", "fish", "fish", "bird"))
 )
 ```
 
