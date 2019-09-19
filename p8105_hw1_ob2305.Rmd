@@ -43,7 +43,7 @@ f = pull(my_df, vec_factor)
 as.numeric(f)
 ```
 
-
+## Second code chunk
 ```{r eval=FALSE}
 ```
 
@@ -54,7 +54,8 @@ as.numeric(f)
 plot_df = tibble(
   x = rnorm(500),
   y = rnorm(500),
-  logic_vector = x + y >1
+  logic_vector = (x + y) >1,
+  numeric_vector = as.numeric(logic_vector)
 )
 
 ```
