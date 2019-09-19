@@ -19,6 +19,32 @@ my_df = tibble(
   vec_char = c("monkey", "eel", "finch", "dog", "cat", "salmon", "carp","parrot"),
   vec_factor = factor(c("mammal", "fish", "bird", "mammal", "mammal", "fish", "fish", "bird"))
 )
+
+# The mean of the variables inside the data frame
+mean(pull(my_df, vec_numeric))
+mean(pull(my_df, vec_logical))
+mean(pull(my_df, vec_char))
+mean(pull(my_df, vec_factor))
+
+# You can only take a mean of numeric or logical vectors, thus mean(vec_char) and mean(vec_factor) are not applicable.
+
+## Application of as.numeric
+
+# logical vector
+l = pull(my_df, vec_logical)
+as.numeric(l)
+
+# character vector
+c = pull(my_df, vec_char)
+as.numeric(c)
+
+# factor vector
+f = pull(my_df, vec_factor)
+as.numeric(f)
+```
+
+
+```{r eval=FALSE}
 ```
 
 
@@ -30,5 +56,6 @@ plot_df = tibble(
   y = rnorm(500),
   logic_vector = x + y >1
 )
+
 ```
 
