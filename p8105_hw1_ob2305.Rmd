@@ -75,8 +75,38 @@ plot_df = tibble(
   x = rnorm(500),
   y = rnorm(500),
   logic_vector = (x + y) >1,
-  numeric_vector = as.numeric(logic_vector)
+  numeric_vector = as.numeric(logic_vector),
+  factor_vector = as.factor(logic_vector)
 )
 
+df_rows = nrow(plot_df)
+df_col = ncol(plot_df)
+x_mean = mean(pull(plot_df, x))
+x_median = median(pull(plot_df, x))
+x_sd = sd(pull(plot_df, x))
+lv = pull(plot_df, logic_vector)
+```
+My data frame has `r df_rows` rows, `r df_col` columns. The mean of x is equal to `r round(x_mean, digits = 3)`, median = `r round(x_median, digits=3)` and standard deviation = `r round(x_sd, digits=3)`. The proportion of cases for which (x+y) > 1 is equal to `r sum(lv)`.
+
+Here are the scatter plot
+```{r yx_scatter}
+#  scatter plot of x and y
+ggplot(plot_df, aes(x = x, y = y,  color = logic_vector)) + geom_point()
+ggsave("scatterplot.pdf")
 ```
 
+Scatter plot has two colors representing true and false values for logical vector x+y > 1; values which are >1 represented by the teal color, while values which are <1 represented by the red color. 
+
+```{r numeric_scatter}
+# scatter plot for numeric variable 
+ggplot(plot_df, aes(x = x, y = y,  color = numeric_vector)) + geom_point()
+```
+
+Scatter plot has two colors representing values for a numeric factor; values which are >1 represented by the light blue color, while values which are <1 represented by the navy color. 
+
+```{r factor_scatter}
+# scatter plot for factor variable 
+ggplot(plot_df, aes(x = x, y = y,  color = factor_vector)) + geom_point()
+```
+
+Scatter plot has two colors representing true and false values for factor variable; values which are >1 represented by the teal color, while values which are <1 represented by the red color. 
