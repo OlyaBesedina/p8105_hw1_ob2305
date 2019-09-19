@@ -44,7 +44,27 @@ as.numeric(f)
 ```
 
 ## Second code chunk
+
+Convert logical vector to numeric and multiply result by the random sample
 ```{r eval=FALSE}
+l = pull(my_df, vec_logical)
+l_1 = as.numeric(l)
+pull(my_df,vec_numeric)*l_1
+```
+
+Convert the logical vector to a factor and multiply teh random sample by the result
+```{r eval=FALSE}
+l_2 = pull(my_df, vec_logical)
+l_3 = as.factor(l_2)
+pull(my_df,vec_numeric)*l_3
+```
+
+Convert logical vector to a factor and then convert the result to numeric and multiply random sample by the result
+```{r eval=FALSE}
+l_2 = pull(my_df, vec_logical)
+l_3 = as.factor(l_2)
+l_4 = as.numeric(l_3)
+pull(my_df,vec_numeric)*l_4
 ```
 
 
