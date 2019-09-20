@@ -37,10 +37,12 @@ as.numeric(l)
 # character vector
 c = pull(my_df, vec_char)
 as.numeric(c)
+# You cannot apply as.numeric function to a character vector. This explains why you cannot take a mean of words. 
 
 # factor vector
 f = pull(my_df, vec_factor)
 as.numeric(f)
+# Factor vector has 3 levels and thus can be expressed as a number. 
 ```
 
 ## Second code chunk
@@ -88,7 +90,7 @@ lv = pull(plot_df, logic_vector)
 ```
 My data frame has `r df_rows` rows, `r df_col` columns. The mean of x is equal to `r round(x_mean, digits = 3)`, median = `r round(x_median, digits=3)` and standard deviation = `r round(x_sd, digits=3)`. The proportion of cases for which (x+y) > 1 is equal to `r sum(lv)`.
 
-Here are the scatter plot
+Here are the scatter plots
 ```{r yx_scatter}
 #  scatter plot of x and y
 ggplot(plot_df, aes(x = x, y = y,  color = logic_vector)) + geom_point()
